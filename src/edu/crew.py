@@ -60,7 +60,7 @@ class MoojoLeadGen:
     def outreach_strategist(self) -> Agent:
         return Agent(
             config=self.agents_config['outreach_strategist'],
-            tools=[self.search_tool],
+            tools=[],
             verbose=True,
             allow_delegation=False
         )

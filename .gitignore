@@ -35,5 +35,5 @@ ENV/
 
 # Project specific
 *.log
-moojo_leads_report.md
-outreach_strategy.md
+# moojo_leads_report.md
+# outreach_strategy.md
