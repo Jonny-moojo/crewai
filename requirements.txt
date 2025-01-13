@@ -1,4 +1,6 @@
 crewai
 crewai-tools
 langchain
-python-dotenv 
+python-dotenv
+mem0
+serper-dev 

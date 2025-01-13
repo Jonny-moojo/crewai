@@ -1,7 +1,8 @@
 research_task:
   description: >
     Research and create a report about companies that might need Moojo's privacy-preserving consumer identity solution
-    for their shopping and commerce AI agents.
+    for their shopping and commerce AI agents. Use the consumer preferences and behaviors stored in memory to
+    identify companies that align with these shopping patterns.
 
     Focus on finding companies that:
     1. Have AI-powered shopping assistants or commerce chatbots
@@ -10,45 +11,49 @@ research_task:
     4. Are in e-commerce, retail, or marketplace sectors
     5. Use AI for personalized shopping recommendations
 
-    For each company found, try to:
-    1. Understand their current AI shopping assistant implementations
-    2. Identify their identity verification challenges in the purchase flow
-    3. Determine how Moojo's privacy-preserving solution could enhance their shopping experience
+    For each company found:
+    1. Analyze how their current AI shopping assistant aligns with stored consumer preferences
+    2. Identify identity verification challenges in their purchase flow
+    3. Determine how Moojo's solution could enhance their shopping experience
     4. Look for any public statements about AI privacy in e-commerce
   expected_output: >
     A list of 5-10 promising companies with their basic information and initial assessment
-    of their potential need for Moojo's solution in their shopping experiences.
+    of their potential need for Moojo's solution, prioritized based on alignment with consumer preferences.
   agent: researcher
 
 privacy_analysis_task:
   description: >
-    Analyze the privacy and compliance implications for each identified company's AI shopping operations.
+    Analyze the privacy and compliance implications for each identified company's AI shopping operations,
+    taking into account the privacy preferences and concerns expressed by consumers in memory.
 
     For each company, evaluate:
     1. Current privacy practices in their AI shopping implementations
     2. Applicable regulations (GDPR, CCPA, PCI-DSS) and compliance status
     3. Privacy risks in their current shopping identity verification approach
-    4. How Moojo's privacy-preserving solution aligns with e-commerce compliance needs
+    4. How Moojo's privacy-preserving solution aligns with both e-commerce compliance needs
+       and consumer privacy expectations
 
     Consider:
     - Payment data protection requirements
     - Shopping history and preference privacy
     - Cross-border e-commerce regulations
     - Retail-specific privacy requirements
+    - Consumer expressed privacy concerns
   expected_output: >
     A detailed privacy and compliance analysis for each company, including:
     - Current e-commerce privacy challenges and risks
     - Retail-specific regulatory requirements and gaps
     - Specific ways Moojo can help secure shopping experiences
-    - Prioritization based on e-commerce privacy needs
+    - Prioritization based on alignment with consumer privacy preferences
   agent: privacy_analyst
 
 ai_analysis_task:
   description: >
-    Analyze the technical aspects of each company's shopping AI implementation and identity verification needs.
+    Analyze the technical aspects of each company's shopping AI implementation and identity verification needs,
+    considering the consumer interaction patterns and preferences stored in memory.
 
     For each company, evaluate:
-    1. Current AI shopping assistant architecture and interaction patterns
+    1. Current AI shopping assistant architecture and how it matches consumer preferences
     2. Identity verification methods in the purchase flow
     3. Balance between personalized recommendations and privacy
     4. Technical integration points for Moojo's solution in the shopping experience
@@ -57,28 +62,30 @@ ai_analysis_task:
     - Shopping cart and checkout authentication
     - Personalization vs. privacy tradeoffs
     - Payment flow security
-    - Customer experience impact
+    - Customer experience alignment with stored preferences
   expected_output: >
     A technical analysis for each company, including:
     - Current AI shopping implementation assessment
     - E-commerce identity verification pain points
     - Technical benefits of Moojo's solution for shopping
-    - Integration recommendations for purchase flows
+    - Integration recommendations based on consumer behavior patterns
   agent: ai_analyst
 
 final_report_task:
   description: >
-    Compile a comprehensive report combining all analyses into actionable insights for e-commerce prospects.
+    Compile a comprehensive report combining all analyses into actionable insights for e-commerce prospects,
+    incorporating consumer preferences and behaviors from memory.
 
     Synthesize:
     1. Initial e-commerce company research
     2. Shopping-specific privacy analysis
     3. AI shopping implementation analysis
+    4. Consumer preference patterns
 
     Create a prioritized list of prospects based on:
     - E-commerce privacy and compliance needs
     - Shopping AI implementation maturity
-    - Potential impact on customer experience
+    - Alignment with consumer preferences and behaviors
   expected_output: >
     A final report containing:
     1. Executive summary of top e-commerce prospects
@@ -86,14 +93,15 @@ final_report_task:
        - E-commerce business overview
        - Shopping privacy/compliance analysis
        - AI shopping assistant assessment
-       - Implementation recommendations
+       - Consumer preference alignment analysis
     3. Prioritized action plan for each retail prospect
   agent: researcher
   output_file: moojo_leads_report.md
 
 outreach_strategy_task:
   description: >
-    Create personalized outreach strategies for each e-commerce prospect based on the comprehensive analysis.
+    Create personalized outreach strategies for each e-commerce prospect based on the comprehensive analysis
+    and consumer preferences stored in memory.
 
     For each company, develop:
     1. Retail stakeholder mapping:
@@ -103,23 +111,23 @@ outreach_strategy_task:
 
     2. E-commerce value proposition alignment:
        - Match Moojo's benefits to specific shopping pain points
-       - Highlight privacy benefits for customer experience
+       - Highlight privacy benefits that align with consumer concerns
        - Emphasize secure and seamless purchase flows
 
     3. Retail engagement plan:
        - Craft personalized e-commerce focused messages
        - Design multi-touch retail communication sequence
-       - Prepare shopping-specific objection handling
+       - Prepare shopping-specific objection handling based on consumer feedback
 
     Consider:
     - Company's e-commerce AI maturity
     - Shopping privacy priorities
-    - Customer experience focus
-    - Retail industry messaging
+    - Customer experience alignment
+    - Consumer expressed preferences
   expected_output: >
     A detailed outreach playbook for each e-commerce prospect, including:
     1. Retail stakeholder analysis and engagement strategy
-    2. Shopping-focused value propositions
+    2. Shopping-focused value propositions based on consumer insights
     3. E-commerce-specific outreach sequence
     4. Retail-focused talking points
     5. Success metrics for retail engagement

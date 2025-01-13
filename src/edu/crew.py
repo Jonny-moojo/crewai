@@ -3,6 +3,7 @@ from crewai.project import CrewBase, agent, crew, task
 from crewai_tools import SerperDevTool
 import os
 from dotenv import load_dotenv
+import uuid
 
 # Load environment variables
 load_dotenv()
@@ -22,12 +23,16 @@ class MoojoLeadGen:
     agents_config = 'config/agents.yaml'
     tasks_config = 'config/tasks.yaml'
 
-    def __init__(self):
+    def __init__(self, user_id: str = "test_user"):
         super().__init__()
         self.search_tool = SerperDevTool(
             api_key=api_key,
             num_results=10
         )
+        self.user_id = user_id
+        self.agent_id = str(uuid.uuid4())
+        self.app_id = "moojo_lead_gen"
+        self.run_id = str(uuid.uuid4())
 
     @agent
     def researcher(self) -> Agent:
@@ -35,7 +40,17 @@ class MoojoLeadGen:
             config=self.agents_config['researcher'],
             tools=[self.search_tool],
             verbose=True,
-            allow_delegation=False
+            allow_delegation=False,
+            memory=True,
+            memory_config={
+                "provider": "mem0",
+                "config": {
+                    "user_id": self.user_id,
+                    "agent_id": self.agent_id,
+                    "app_id": self.app_id,
+                    "run_id": self.run_id
+                }
+            }
         )
 
     @agent
@@ -44,7 +59,17 @@ class MoojoLeadGen:
             config=self.agents_config['privacy_analyst'],
             tools=[self.search_tool],
             verbose=True,
-            allow_delegation=False
+            allow_delegation=False,
+            memory=True,
+            memory_config={
+                "provider": "mem0",
+                "config": {
+                    "user_id": self.user_id,
+                    "agent_id": self.agent_id,
+                    "app_id": self.app_id,
+                    "run_id": self.run_id
+                }
+            }
         )
 
     @agent
@@ -53,7 +78,17 @@ class MoojoLeadGen:
             config=self.agents_config['ai_analyst'],
             tools=[self.search_tool],
             verbose=True,
-            allow_delegation=False
+            allow_delegation=False,
+            memory=True,
+            memory_config={
+                "provider": "mem0",
+                "config": {
+                    "user_id": self.user_id,
+                    "agent_id": self.agent_id,
+                    "app_id": self.app_id,
+                    "run_id": self.run_id
+                }
+            }
         )
 
     @agent
@@ -62,7 +97,17 @@ class MoojoLeadGen:
             config=self.agents_config['outreach_strategist'],
             tools=[],
             verbose=True,
-            allow_delegation=False
+            allow_delegation=False,
+            memory=True,
+            memory_config={
+                "provider": "mem0",
+                "config": {
+                    "user_id": self.user_id,
+                    "agent_id": self.agent_id,
+                    "app_id": self.app_id,
+                    "run_id": self.run_id
+                }
+            }
         )
 
     @task
@@ -102,8 +147,18 @@ class MoojoLeadGen:
             agents=self.agents,
             tasks=self.tasks,
             process=Process.sequential,
-            verbose=True
+            verbose=True,
+            memory=True,
+            memory_config={
+                "provider": "mem0",
+                "config": {
+                    "user_id": self.user_id,
+                    "agent_id": self.agent_id,
+                    "app_id": self.app_id,
+                    "run_id": self.run_id
+                }
+            }
         )
 
-# Create the crew instance
+# Create the crew instance with default user_id
 crew = MoojoLeadGen().crew()
